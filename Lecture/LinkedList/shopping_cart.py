@@ -11,12 +11,6 @@ class LinkedList:
 
     def append(self, value):
         new_node = Node(value)
-        self.tail.next = new_node
-        self.tail = new_node
-    
-    # Append to empty linked list
-    def append2(self, value):
-        new_node = Node(value)
         if not self.head:
             self.head = new_node
             self.tail = new_node
@@ -24,19 +18,13 @@ class LinkedList:
             self.tail.next = new_node
             self.tail = new_node
 
-    def prepend(self,value):
-        new_node = Node(value)
-        new_node.next = self.head
-        self.head = new_node
-    
-    # Prepend node to empty linked list
-    def prepend2(self, value):
+    def prepend(self, value):
         new_node = Node(value)
         new_node.next = self.head
         self.head = new_node
         if not self.tail:
             self.tail = new_node
-    
+
     def remove(self, value):
         if not self.head:
             return
@@ -59,11 +47,29 @@ class LinkedList:
         while iterator:
             print(iterator.value + " ")
             iterator = iterator.next
-    
-    # Adding at the end O(1)
-    # Insert at the beginning O(1)
-    # Delete at the beginning is O(1)
-    # Deleting after a node is O(n) 
-    # Traversing is O(n)
-    # Searching is O(n)
-    # Insearting after a node is O(n) because we need to find the node until we have the node that we want
+
+
+class ShoppingCart:
+    def __init__(self):
+        self.items = LinkedList()
+
+    def add_item(self, item):
+        self.items.append(item)
+
+    def remove_item(self, item):
+        self.items.remove(item)
+
+    def display_cart(self):
+        print("Items in the shopping cart: ")
+        self.items.iterate()
+
+
+cart = ShoppingCart()
+cart.add_item("Apple")
+cart.add_item("Banana")
+cart.add_item("Orange")
+
+cart.display_cart()
+
+cart.remove_item("Orange")
+cart.display_cart()
