@@ -13,3 +13,21 @@ print("Empty set: ", empty_set)
 # Example 4: Creating an imuutable set
 immutable_set = frozenset([10, 20, 30])
 print("Immutable set: ", immutable_set)
+
+# Set's Methods and Operations
+my_set = {1, 2, 3}
+my_set.add(4)
+my_set.discard(2)
+print(my_set)
+print(3 in my_set)
+
+# Sets in Big O
+'''
+- Adding and elemnt
+- Removing an element
+- Checking membership
+Time Complexity: O(1)
+Space Complexity: O(1)
+'''
+
+
